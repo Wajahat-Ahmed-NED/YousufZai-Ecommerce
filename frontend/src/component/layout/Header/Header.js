@@ -7,6 +7,7 @@ const options = {
   logo,
   logoWidth: "20vmax",
   navColor1: "white",
+  logoDisplay:'block',
   logoHoverSize: "10px",
   logoHoverColor: "#eb4034",
   link1Text: "Home",

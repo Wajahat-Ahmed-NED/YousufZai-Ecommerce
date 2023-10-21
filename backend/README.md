@@ -1,6 +1,6 @@
 # MERN E-COMMERCE TUTORIAL
 
-Hi! My name is **Wajahat Ahmed**, I have created this ecommerce app for a commercial customer YousufZai.
+Hi! My name is **Abhishek Singh**, I have created this tutorial to teach MERN Stack for free on YouTube.
 
 # Prerequisite
 
@@ -41,4 +41,7 @@ _fill each filed with your info respectively_
 
 ## Author
 
-**LinkedIn** Click [Here](https://in.linkedin.com/in/wajahat.naveed.399) 
+**Instagram** Click [Here](https://www.instagram.com/meabhisingh) **@meAbhiSingh**
+**YouTube** Click [Here](https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw/) **6 Pack Programmer**
+**LinkedIn** Click [Here](https://in.linkedin.com/in/meabhisingh) **@meAbhiSingh**
+**Twitter** Click [Here](https://twitter.com/meAbhi_Singh) **@meAbhi_Singh**
