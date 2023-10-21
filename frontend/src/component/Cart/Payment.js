@@ -57,7 +57,7 @@ const Payment = ({ history }) => {
         },
       };
       const { data } = await axios.post(
-        "https://yousuf-zai-ecommerce-api.vercel.app//api/v1/payment/process",
+        "https://yousuf-zai-ecommerce-api.vercel.app/api/v1/payment/process",
         paymentData,
         config
       );

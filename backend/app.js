@@ -7,7 +7,7 @@ const path = require("path");
 const cors = require('cors')
 app.use(cors(
   {
-      origin: ["https://65343b09062e1b6e07119f99--bejewelled-wisp-eba7d1.netlify.app"],
+      origin: '*',
       methods:['GET','POST','HEAD','PUT','PATCH','DELETE'],
       credentials: true
   }
