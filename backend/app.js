@@ -5,7 +5,13 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 const cors = require('cors')
-app.use(cors());
+app.use(cors(
+  {
+      origin: ["https://65343b09062e1b6e07119f99--bejewelled-wisp-eba7d1.netlify.app"],
+      methods:['GET','POST','HEAD','PUT','PATCH','DELETE'],
+      credentials: true
+  }
+));
 const errorMiddleware = require("./middleware/error");
 
 // Config
