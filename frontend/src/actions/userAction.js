@@ -107,7 +107,7 @@ export const updateProfile = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.put(`https://yousuf-zai-ecommerce-api.vercel.app//api/v1/me/update`, userData, config);
-
+ 
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
   } catch (error) {
     dispatch({
