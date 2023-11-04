@@ -175,6 +175,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 
 // update User Profile
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+  console.log("Cookies", req.cookies);
   const newUserData = {
     name: req.body.name,
     email: req.body.email,

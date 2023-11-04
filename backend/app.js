@@ -4,14 +4,14 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
-const cors = require('cors')
-app.use(cors(
-  {
-      origin: '*',
-      methods:['GET','POST','HEAD','PUT','PATCH','DELETE'],
-      credentials: true
-  }
-));
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
 const errorMiddleware = require("./middleware/error");
 
 // Config
