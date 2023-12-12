@@ -1,27 +1,31 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
-import logo from "../../../images/logo.png";
+import logo from "../../../images/download.jpg";
 
 const options = {
   burgerColorHover: "#eb4034",
+  burgerColor: "#eb4034",
   logo,
-  logoWidth: "20vmax",
+  logoWidth: "10vmax",
   navColor1: "white",
-  logoDisplay:'block',
+  logoDisplay: "block",
   logoHoverSize: "10px",
   logoHoverColor: "#eb4034",
   link1Text: "Home",
-  link2Text: "Products",
-  link3Text: "Contact",
-  link4Text: "About",
+  link2Text: "Courses",
+  // link3Text: "Trainers",
+  link3Text: "Trainers",
+  link4Text: "About Us",
   link1Url: "/",
   link2Url: "/products",
+  // link3Url: "/trainer",
   link3Url: "/contact",
   link4Url: "/about",
   link1Size: "1.3vmax",
   link1Color: "rgba(35, 35, 35,0.8)",
   nav1justifyContent: "flex-end",
   nav2justifyContent: "flex-end",
+  // nav3justifyContent: "flex-end",
   nav3justifyContent: "flex-start",
   nav4justifyContent: "flex-start",
   link1ColorHover: "#eb4034",
@@ -37,7 +41,9 @@ const options = {
 };
 
 const Header = () => {
-  return <ReactNavbar {...options} />;
+  return (
+    <ReactNavbar {...options} style={{ backgroundColor: "transparent" }} />
+  );
 };
 
 export default Header;
