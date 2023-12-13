@@ -50,14 +50,14 @@ const ProductDetails = ({ match }) => {
     if (product.Stock <= quantity) return;
 
     const qty = quantity + 1;
-    setQuantity(qty);
+    setQuantity(1);
   };
 
   const decreaseQuantity = () => {
     if (1 >= quantity) return;
 
     const qty = quantity - 1;
-    setQuantity(qty);
+    setQuantity(1);
   };
 
   const addToCartHandler = () => {
@@ -124,7 +124,7 @@ const ProductDetails = ({ match }) => {
             <div>
               <div className="detailsBlock-1">
                 <h2>{product.name}</h2>
-                <p>Product # {product._id}</p>
+                <p>Course # {product._id}</p>
               </div>
               <div className="detailsBlock-2">
                 <Rating {...options} />
@@ -135,25 +135,19 @@ const ProductDetails = ({ match }) => {
               </div>
               <div className="detailsBlock-3">
                 <h1>{`Rs ${product.price}`}</h1>
-                <div className="detailsBlock-3-1">
-                  <div className="detailsBlock-3-1-1">
-                    <button onClick={decreaseQuantity}>-</button>
-                    <input readOnly type="number" value={quantity} />
-                    <button onClick={increaseQuantity}>+</button>
-                  </div>
-                  <button
-                    disabled={product.Stock < 1 ? true : false}
-                    onClick={addToCartHandler}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
+                {/* <div className="detailsBlock-3-1"> */}
+                <button
+                  disabled={product.Stock < 1 ? true : false}
+                  onClick={addToCartHandler}
+                  className="submitReview"
+                >
+                  Buy Now
+                </button>
+                {/* </div> */}
 
                 <p>
                   Status:
-                  <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
-                    {product.Stock < 1 ? "OutOfStock" : "InStock"}
-                  </b>
+                  <b className={"greenColor"}>Available</b>
                 </p>
               </div>
 

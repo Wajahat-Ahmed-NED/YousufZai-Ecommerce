@@ -41,15 +41,15 @@ const Cart = ({ history }) => {
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
 
-          <Typography>No Product in Your Cart</Typography>
-          <Link to="/products">View Products</Link>
+          <Typography>No Course in Your Cart</Typography>
+          <Link to="/products">View Course</Link>
         </div>
       ) : (
         <Fragment>
           <div className="cartPage">
             <div className="cartHeader">
-              <p>Product</p>
-              <p>Quantity</p>
+              <p>Course</p>
+
               <p>Subtotal</p>
             </div>
 
@@ -57,7 +57,7 @@ const Cart = ({ history }) => {
               cartItems.map((item) => (
                 <div className="cartContainer" key={item.product}>
                   <CartItemCard item={item} deleteCartItems={deleteCartItems} />
-                  <div className="cartInput">
+                  {/* <div className="cartInput">
                     <button
                       onClick={() =>
                         decreaseQuantity(item.product, item.quantity)
@@ -77,7 +77,7 @@ const Cart = ({ history }) => {
                     >
                       +
                     </button>
-                  </div>
+                  </div> */}
                   <p className="cartSubtotal">{`Rs ${
                     item.price * item.quantity
                   }`}</p>

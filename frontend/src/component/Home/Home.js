@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { CgMouse } from "react-icons/all";
+// import { CgMouse } from "react-icons/all";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
@@ -50,9 +50,7 @@ const Home = () => {
             <h1>FIND THE BEST COURSES IN AFFORDABLE PRICE</h1>
 
             <a href="#container">
-              <button>
-                GET NOW <CgMouse />
-              </button>
+              <button>GET NOW</button>
             </a>
           </div>
 

@@ -40,13 +40,13 @@ const Shipping = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title="Shipping Details" />
+      <MetaData title="Card Verification Details" />
 
       <CheckoutSteps activeStep={0} />
 
       <div className="shippingContainer">
         <div className="shippingBox">
-          <h2 className="shippingHeading">Shipping Details</h2>
+          <h2 className="shippingHeading">Credit Verification Details</h2>
 
           <form
             className="shippingForm"
@@ -57,7 +57,7 @@ const Shipping = ({ history }) => {
               <HomeIcon />
               <input
                 type="text"
-                placeholder="Address"
+                placeholder="Card Number"
                 required
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -68,7 +68,7 @@ const Shipping = ({ history }) => {
               <LocationCityIcon />
               <input
                 type="text"
-                placeholder="City"
+                placeholder="Card CVV"
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}

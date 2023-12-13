@@ -52,10 +52,11 @@ function App() {
     const { data } = await axios.get(
       "https://yousuf-zai-ecommerce-api.vercel.app/api/v1/stripeapikey"
     );
-
-    setStripeApiKey(data.stripeApiKey);
+    console.log(data);
+    // setStripeApiKey(data.stripeApiKey);
+    setStripeApiKey("data.stripeApiKey");
   }
-
+  console.log(stripeApiKey);
   useEffect(() => {
     WebFont.load({
       google: {
