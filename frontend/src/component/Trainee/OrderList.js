@@ -15,6 +15,7 @@ import {
   clearErrors,
 } from "../../actions/orderAction";
 import { DELETE_ORDER_RESET } from "../../constants/orderConstants";
+import FullScreenDialog from "./Quiz";
 
 const OrderList = ({ history }) => {
   const dispatch = useDispatch();
@@ -75,11 +76,17 @@ const OrderList = ({ history }) => {
       minWidth: 250,
       flex: 0.4,
     },
+    {
+      field: "score",
+      headerName: "Score",
+      minWidth: 50,
+      flex: 0.4,
+    },
 
     {
       field: "responses",
-      headerName: "Responses",
-      type: "number",
+      headerName: "Deadline",
+      // type: "number",
       minWidth: 70,
       flex: 0.5,
     },
@@ -89,22 +96,15 @@ const OrderList = ({ history }) => {
       flex: 0.3,
       headerName: "Actions",
       minWidth: 50,
-      type: "number",
       sortable: false,
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/quiz/${params.getValue(params.id, "id")}`}>
+            {/* <Link to={`/admin/quiz/${params.getValue(params.id, "id")}`}>
               <EditIcon />
-            </Link>
+            </Link> */}
 
-            <Button
-              onClick={() =>
-                deleteOrderHandler(params.getValue(params.id, "id"))
-              }
-            >
-              <DeleteIcon />
-            </Button>
+            <FullScreenDialog />
           </Fragment>
         );
       },
@@ -114,24 +114,27 @@ const OrderList = ({ history }) => {
   const rows = [
     {
       id: 11231231,
-      responses: 23,
+      responses: "12/2/23",
       quizname: "Web Dev HTML",
       coursename: "Web Dev",
       status: "Active",
+      score: "Pending",
     },
     {
       id: 12331231,
-      responses: 23,
+      responses: "12/9/22",
       quizname: "Mobile Dev HTML",
       coursename: "Mobile Dev",
       status: "Active",
+      score: "8 / 10",
     },
     {
       id: 11231232,
-      responses: 23,
+      responses: "23/2/24",
       quizname: "Python",
       coursename: "Generative AI",
       status: "InActive",
+      score: "9 / 10",
     },
   ];
 
@@ -155,9 +158,9 @@ const OrderList = ({ history }) => {
           <h1 id="productListHeading">All Quizes</h1>
           <hr />
           <br />
-          <Link to="/admin/quiz" style={{ marginLeft: "2%" }}>
+          {/* <Link to="/admin/quiz" style={{ marginLeft: "2%" }}>
             <Button variant="outlined">Create New Quiz</Button>
-          </Link>
+          </Link> */}
           <br />
           <DataGrid
             rows={rows}

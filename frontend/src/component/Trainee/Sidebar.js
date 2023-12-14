@@ -19,7 +19,7 @@ const Sidebar = () => {
 
       <Link to="/admin/dashboard">
         <p>
-          <DashboardIcon /> Trainer Dashboard
+          <DashboardIcon /> Trainee Dashboard
         </p>
       </Link>
 
@@ -34,14 +34,14 @@ const Sidebar = () => {
       <Link to="/admin/orders">
         <p>
           <ListAltIcon />
-          Quiz
+          Quizes
         </p>
       </Link>
-      <Link to="/admin/users">
+      {/* <Link to="/admin/users">
         <p>
           <PeopleIcon /> Content
         </p>
-      </Link>
+      </Link> */}
       <Link to="/admin/reviews">
         <p>
           <RateReviewIcon />

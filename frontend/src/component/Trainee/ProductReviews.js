@@ -136,7 +136,7 @@ const ProductReviews = ({ history }) => {
     <Fragment>
       <MetaData title={`ALL REVIEWS - Admin`} />
 
-      <div className="dashboard" style={{ height: "700vh" }}>
+      <div className="dashboard" style={{ height: "200vh" }}>
         <SideBar />
         <div className="productReviewsContainer">
           <form

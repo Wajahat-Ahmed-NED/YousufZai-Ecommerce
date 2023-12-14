@@ -41,13 +41,37 @@ const Dashboard = () => {
     });
 
   const lineState = {
-    labels: ["Initial Amount", "Amount Earned"],
+    labels: ["Initial Progress", "Progress"],
     datasets: [
       {
-        label: "TOTAL AMOUNT",
+        label: "Course 1",
         backgroundColor: ["tomato"],
         hoverBackgroundColor: ["rgb(197, 72, 49)"],
-        data: [0, totalAmount],
+        data: [0, 21],
+      },
+      {
+        label: "Course 2",
+        backgroundColor: ["red"],
+        hoverBackgroundColor: ["rgb(197, 72, 49)"],
+        data: [0, 90],
+      },
+      {
+        label: "Course 3",
+        backgroundColor: ["blue"],
+        hoverBackgroundColor: ["rgb(197, 72, 49)"],
+        data: [0, 83],
+      },
+      {
+        label: "Course 4",
+        backgroundColor: ["yellow"],
+        hoverBackgroundColor: ["rgb(197, 72, 49)"],
+        data: [0, 67],
+      },
+      {
+        label: "Course 5",
+        backgroundColor: ["green"],
+        hoverBackgroundColor: ["rgb(197, 72, 49)"],
+        data: [0, 100],
       },
     ],
   };
@@ -65,35 +89,35 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <MetaData title="Dashboard - Admin Panel" />
+      <MetaData title="Dashboard - Trainee Panel" />
       <Sidebar />
 
       <div className="dashboardContainer">
         <Typography component="h1" style={{ fontWeight: "bold" }}>
-          Trainer Dashboard
+          Trainee Dashboard
         </Typography>
 
         <hr />
         <div className="dashboardSummary">
           <div>
             <p>
-              Total Amount <br /> Rs 20500
+              Course Completion Rate <br /> 66.3%
               {/* {totalAmount} */}
             </p>
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
-              <p>My Courses</p>
+              <p>Courses Enrolled</p>
               <p>{products && products.length}</p>
             </Link>
             <Link to="/admin/orders">
-              <p>Purchases</p>
+              <p>Courses Completed</p>
               <p>5</p>
               {/* {orders && orders.length} */}
             </Link>
             <Link to="/admin/users">
-              <p>Revenue</p>
-              <p>Rs 20500</p>
+              <p>Pending Quizes</p>
+              <p>4</p>
             </Link>
             {/* <Link to="/admin/users">
               <p>Users</p>
@@ -102,6 +126,9 @@ const Dashboard = () => {
           </div>
         </div>
 
+        <Typography component="h1" style={{ fontWeight: "bold" }}>
+          Course Wise Progress Rate
+        </Typography>
         <div className="lineChart">
           <Line data={lineState} />
         </div>

@@ -61,28 +61,30 @@ const ProductList = ({ history }) => {
       flex: 1,
       align: "left",
     },
+    {
+      field: "completed",
+      headerName: "Completed",
+      minWidth: 250,
+      flex: 1,
+      align: "left",
+    },
+
+    {
+      field: "tname",
+      headerName: "Teacher Name",
+      minWidth: 250,
+      flex: 1,
+      align: "left",
+    },
 
     {
       field: "price",
       headerName: "Price (PKR)",
 
-      minWidth: 270,
+      minWidth: 70,
       flex: 1,
     },
-    {
-      field: "purchases",
-      headerName: "Purchases",
-      minWidth: 150,
-      flex: 1,
-      align: "left",
-    },
-    {
-      field: "revenue",
-      headerName: "Revenue",
-      minWidth: 150,
-      flex: 1,
-      align: "left",
-    },
+
     {
       field: "actions",
       flex: 0.3,
@@ -92,16 +94,19 @@ const ProductList = ({ history }) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/product/${params.getValue(params.id, "id")}`}>
+            {/* <Link to={`/admin/product/${params.getValue(params.id, "id")}`}>
               <EditIcon />
-            </Link>
+            </Link> */}
 
             <Button
-              onClick={() =>
-                deleteProductHandler(params.getValue(params.id, "id"))
-              }
+              // onClick={() =>
+              //   deleteProductHandler(params.getValue(params.id, "id"))
+              // }
+              variant="contained"
+              color="secondary"
+              style={{ color: "white" }}
             >
-              <DeleteIcon />
+              UnEnroll
             </Button>
           </Fragment>
         );
@@ -117,8 +122,10 @@ const ProductList = ({ history }) => {
         id: item._id,
         price: item.price,
         name: item.name,
+        tname: "Prof Sohail Abbas",
         purchases: 21,
         revenue: `Rs ${item.price * 21}`,
+        completed: "78%",
       });
     });
 
@@ -133,9 +140,9 @@ const ProductList = ({ history }) => {
           <hr />
           <br />
 
-          <Link to="/admin/product" style={{ marginLeft: "2%" }}>
+          {/* <Link to="/admin/product" style={{ marginLeft: "2%" }}>
             <Button variant="outlined">Create New Course</Button>
-          </Link>
+          </Link> */}
           <br />
           <DataGrid
             rows={rows}
