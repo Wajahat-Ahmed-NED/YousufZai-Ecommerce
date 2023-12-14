@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
-import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, createProduct } from "../../actions/productAction";
+import {
+  clearErrors,
+  updateProduct,
+  getProductDetails,
+} from "../../actions/productAction";
 import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
@@ -11,20 +14,27 @@ import StorageIcon from "@material-ui/icons/Storage";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
-import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
+import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
 
-const NewProduct = ({ history }) => {
+const UpdateQuiz = ({ history, match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const { loading, error, success } = useSelector((state) => state.newProduct);
+  const { error, product } = useSelector((state) => state.productDetails);
 
-  const [name, setName] = useState("");
+  const {
+    loading,
+    error: updateError,
+    isUpdated,
+  } = useSelector((state) => state.product);
+
+  const [name, setName] = useState("test");
   const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [Stock, setStock] = useState(0);
+  const [description, setDescription] = useState("asdfasdf");
+  const [category, setCategory] = useState("Web Dev");
+  const [Stock, setStock] = useState(1);
   const [images, setImages] = useState([]);
+  const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
@@ -37,20 +47,46 @@ const NewProduct = ({ history }) => {
     "Cyber Security",
   ];
 
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
+  // const productId = match.params.id;
 
-    if (success) {
-      alert.success("Course Created Successfully");
-      history.push("/admin/dashboard");
-      dispatch({ type: NEW_PRODUCT_RESET });
-    }
-  }, [dispatch, alert, error, history, success]);
+  // useEffect(() => {
+  //   if (product && product._id !== productId) {
+  //     dispatch(getProductDetails(productId));
+  //   } else {
+  //     setName(product.name);
+  //     setDescription(product.description);
+  //     setPrice(product.price);
+  //     setCategory(product.category);
+  //     setStock(product.Stock);
+  //     setOldImages(product.images);
+  //   }
+  //   if (error) {
+  //     alert.error(error);
+  //     dispatch(clearErrors());
+  //   }
 
-  const createProductSubmitHandler = (e) => {
+  //   if (updateError) {
+  //     alert.error(updateError);
+  //     dispatch(clearErrors());
+  //   }
+
+  //   if (isUpdated) {
+  //     alert.success("Quiz Updated Successfully");
+  //     history.push("/admin/products");
+  //     dispatch({ type: UPDATE_PRODUCT_RESET });
+  //   }
+  // }, [
+  //   dispatch,
+  //   alert,
+  //   error,
+  //   history,
+  //   isUpdated,
+  //   productId,
+  //   product,
+  //   updateError,
+  // ]);
+
+  const updateProductSubmitHandler = (e) => {
     e.preventDefault();
 
     const myForm = new FormData();
@@ -64,14 +100,15 @@ const NewProduct = ({ history }) => {
     images.forEach((image) => {
       myForm.append("images", image);
     });
-    dispatch(createProduct(myForm));
+    // dispatch(updateProduct(productId, myForm));
   };
 
-  const createProductImagesChange = (e) => {
+  const updateProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
 
     setImages([]);
     setImagesPreview([]);
+    setOldImages([]);
 
     files.forEach((file) => {
       const reader = new FileReader();
@@ -89,42 +126,44 @@ const NewProduct = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title="Create Course" />
+      <MetaData title="Update Quiz" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
           <form
             className="createProductForm"
             encType="multipart/form-data"
-            onSubmit={createProductSubmitHandler}
+            onSubmit={updateProductSubmitHandler}
           >
-            <h1>Create Course</h1>
+            <h1>Update Quiz</h1>
 
             <div>
               <SpellcheckIcon />
               <input
                 type="text"
-                placeholder="Course Name"
+                placeholder="Quiz Name"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div>
+
+            {/* <div>
               <AttachMoneyIcon />
               <input
                 type="number"
                 placeholder="Price"
                 required
                 onChange={(e) => setPrice(e.target.value)}
+                value={price}
               />
-            </div>
+            </div> */}
 
             <div>
               <DescriptionIcon />
 
               <textarea
-                placeholder="Course Description"
+                placeholder="Quiz Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 cols="30"
@@ -134,8 +173,11 @@ const NewProduct = ({ history }) => {
 
             <div>
               <AccountTreeIcon />
-              <select onChange={(e) => setCategory(e.target.value)}>
-                <option value="">Choose Category</option>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="">Choose Course</option>
                 {categories.map((cate) => (
                   <option key={cate} value={cate}>
                     {cate}
@@ -151,6 +193,7 @@ const NewProduct = ({ history }) => {
                 placeholder="Stock"
                 required
                 onChange={(e) => setStock(e.target.value)}
+                value={Stock}
               />
             </div> */}
 
@@ -159,9 +202,16 @@ const NewProduct = ({ history }) => {
                 type="file"
                 name="avatar"
                 accept="image/*"
-                onChange={createProductImagesChange}
-                multiple
+                onChange={updateProductImagesChange}
+                // multiple
               />
+            </div>
+
+            <div id="createProductFormImage">
+              {oldImages &&
+                oldImages.map((image, index) => (
+                  <img key={index} src={image.url} alt="Old Product Preview" />
+                ))}
             </div>
 
             <div id="createProductFormImage">
@@ -175,7 +225,7 @@ const NewProduct = ({ history }) => {
               type="submit"
               disabled={loading ? true : false}
             >
-              Create
+              Update
             </Button>
           </form>
         </div>
@@ -184,4 +234,4 @@ const NewProduct = ({ history }) => {
   );
 };
 
-export default NewProduct;
+export default UpdateQuiz;

@@ -13,7 +13,7 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
 
-const NewProduct = ({ history }) => {
+const NewContent = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -36,6 +36,8 @@ const NewProduct = ({ history }) => {
     "DevOps",
     "Cyber Security",
   ];
+  const type = ["Video", "Document"];
+  const type2 = ["Video1", "Video2"];
 
   useEffect(() => {
     if (error) {
@@ -44,7 +46,7 @@ const NewProduct = ({ history }) => {
     }
 
     if (success) {
-      alert.success("Course Created Successfully");
+      alert.success("Content Created Successfully");
       history.push("/admin/dashboard");
       dispatch({ type: NEW_PRODUCT_RESET });
     }
@@ -52,19 +54,19 @@ const NewProduct = ({ history }) => {
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
+    window.alert("Success");
+    // const myForm = new FormData();
 
-    const myForm = new FormData();
+    // myForm.set("name", name);
+    // myForm.set("price", price);
+    // myForm.set("description", description);
+    // myForm.set("category", category);
+    // myForm.set("Stock", Stock);
 
-    myForm.set("name", name);
-    myForm.set("price", price);
-    myForm.set("description", description);
-    myForm.set("category", category);
-    myForm.set("Stock", Stock);
-
-    images.forEach((image) => {
-      myForm.append("images", image);
-    });
-    dispatch(createProduct(myForm));
+    // images.forEach((image) => {
+    //   myForm.append("images", image);
+    // });
+    // dispatch(createProduct(myForm));
   };
 
   const createProductImagesChange = (e) => {
@@ -89,7 +91,7 @@ const NewProduct = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title="Create Course" />
+      <MetaData title="Create Content" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
@@ -98,19 +100,19 @@ const NewProduct = ({ history }) => {
             encType="multipart/form-data"
             onSubmit={createProductSubmitHandler}
           >
-            <h1>Create Course</h1>
+            <h1>Add Content</h1>
 
             <div>
               <SpellcheckIcon />
               <input
                 type="text"
-                placeholder="Course Name"
+                placeholder="Name"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div>
+            {/* <div>
               <AttachMoneyIcon />
               <input
                 type="number"
@@ -118,13 +120,13 @@ const NewProduct = ({ history }) => {
                 required
                 onChange={(e) => setPrice(e.target.value)}
               />
-            </div>
+            </div> */}
 
             <div>
               <DescriptionIcon />
 
               <textarea
-                placeholder="Course Description"
+                placeholder="Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 cols="30"
@@ -135,8 +137,23 @@ const NewProduct = ({ history }) => {
             <div>
               <AccountTreeIcon />
               <select onChange={(e) => setCategory(e.target.value)}>
-                <option value="">Choose Category</option>
-                {categories.map((cate) => (
+                <option value="">Choose Type</option>
+                {type.map((cate) => (
+                  <option key={cate} value={cate}>
+                    {cate}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <AccountTreeIcon />
+              <select
+              // onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="">
+                  Choose {category === "Video" ? "Course" : "Video"}
+                </option>
+                {(category === "Video" ? categories : type2)?.map((cate) => (
                   <option key={cate} value={cate}>
                     {cate}
                   </option>
@@ -184,4 +201,4 @@ const NewProduct = ({ history }) => {
   );
 };
 
-export default NewProduct;
+export default NewContent;

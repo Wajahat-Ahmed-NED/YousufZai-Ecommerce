@@ -30,18 +30,31 @@ import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 import MyOrders from "./component/Order/MyOrders";
 import OrderDetails from "./component/Order/OrderDetails";
-import Dashboard from "./component/Admin/Dashboard.js";
-import ProductList from "./component/Admin/ProductList.js";
-import NewProduct from "./component/Admin/NewProduct";
-import UpdateProduct from "./component/Admin/UpdateProduct";
-import OrderList from "./component/Admin/OrderList";
-import ProcessOrder from "./component/Admin/ProcessOrder";
-import UsersList from "./component/Admin/UsersList";
-import UpdateUser from "./component/Admin/UpdateUser";
-import ProductReviews from "./component/Admin/ProductReviews";
+import Dashboard from "./component/Trainer/Dashboard.js";
+import ProductList from "./component/Trainer/ProductList.js";
+import NewProduct from "./component/Trainer/NewProduct";
+import UpdateProduct from "./component/Trainer/UpdateProduct";
+import OrderList from "./component/Trainer/OrderList";
+import ProcessOrder from "./component/Trainer/ProcessOrder";
+import UsersList from "./component/Trainer/UsersList";
+import UpdateUser from "./component/Trainer/UpdateUser";
+import ProductReviews from "./component/Trainer/ProductReviews";
+// import Dashboard from "./component/Admin/Dashboard.js";
+// import ProductList from "./component/Admin/ProductList.js";
+// import NewProduct from "./component/Admin/NewProduct";
+// import UpdateProduct from "./component/Admin/UpdateProduct";
+// import OrderList from "./component/Admin/OrderList";
+// import ProcessOrder from "./component/Admin/ProcessOrder";
+// import UsersList from "./component/Admin/UsersList";
+// import UpdateUser from "./component/Admin/UpdateUser";
+// import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
+import NewQuiz from "./component/Trainer/NewQuiz.js";
+import UpdateQuiz from "./component/Trainer/UpdateQuiz.js";
+import NewContent from "./component/Trainer/NewContent.js";
+import UpdateContent from "./component/Trainer/UpdateContent.js";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -141,6 +154,30 @@ function App() {
           isAdmin={true}
           component={NewProduct}
         />
+        <ProtectedRoute
+          exact
+          path="/admin/quiz"
+          isAdmin={true}
+          component={NewQuiz}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/content"
+          isAdmin={true}
+          component={NewContent}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/content/:id"
+          isAdmin={true}
+          component={UpdateContent}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/quiz/:id"
+          isAdmin={true}
+          component={UpdateQuiz}
+        />
 
         <ProtectedRoute
           exact
@@ -181,6 +218,65 @@ function App() {
           isAdmin={true}
           component={ProductReviews}
         />
+
+        {/* <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/trainer/dashboard"
+          component={Dashboard}
+        />
+        <ProtectedRoute
+          exact
+          path="/trainer/products"
+          isAdmin={true}
+          component={ProductList}
+        />
+        <ProtectedRoute
+          exact
+          path="/trainer/product"
+          isAdmin={true}
+          component={NewProduct}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/trainer/product/:id"
+          isAdmin={true}
+          component={UpdateProduct}
+        />
+        <ProtectedRoute
+          exact
+          path="/trainer/orders"
+          isAdmin={true}
+          component={OrderList}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/trainer/order/:id"
+          isAdmin={true}
+          component={ProcessOrder}
+        />
+        <ProtectedRoute
+          exact
+          path="/trainer/users"
+          isAdmin={true}
+          component={UsersList}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/trainer/user/:id"
+          isAdmin={true}
+          component={UpdateUser}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/trainer/reviews"
+          isAdmin={true}
+          component={ProductReviews}
+        /> */}
 
         <Route
           path="/process/payment"

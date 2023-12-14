@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./newProduct.css";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, createProduct } from "../../actions/productAction";
 import { useAlert } from "react-alert";
@@ -12,8 +13,9 @@ import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
+import ExamplePDF from "./ExamplePDF.pdf";
 
-const NewProduct = ({ history }) => {
+const NewQuiz = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -96,21 +98,33 @@ const NewProduct = ({ history }) => {
           <form
             className="createProductForm"
             encType="multipart/form-data"
-            onSubmit={createProductSubmitHandler}
+            onSubmit={() => {
+              alert("Quiz Creation Successful");
+            }}
           >
-            <h1>Create Course</h1>
+            <h1>Create Quiz</h1>
+            <Link
+              to={ExamplePDF}
+              // download="Example-PDF-document"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button variant="contained" color="secondary">
+                Download Quiz Format
+              </Button>
+            </Link>
 
             <div>
               <SpellcheckIcon />
               <input
                 type="text"
-                placeholder="Course Name"
+                placeholder="Quiz Name"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div>
+            {/* <div>
               <AttachMoneyIcon />
               <input
                 type="number"
@@ -118,13 +132,13 @@ const NewProduct = ({ history }) => {
                 required
                 onChange={(e) => setPrice(e.target.value)}
               />
-            </div>
+            </div> */}
 
             <div>
               <DescriptionIcon />
 
               <textarea
-                placeholder="Course Description"
+                placeholder="Quiz Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 cols="30"
@@ -135,7 +149,7 @@ const NewProduct = ({ history }) => {
             <div>
               <AccountTreeIcon />
               <select onChange={(e) => setCategory(e.target.value)}>
-                <option value="">Choose Category</option>
+                <option value="">Choose Course</option>
                 {categories.map((cate) => (
                   <option key={cate} value={cate}>
                     {cate}
@@ -160,7 +174,6 @@ const NewProduct = ({ history }) => {
                 name="avatar"
                 accept="image/*"
                 onChange={createProductImagesChange}
-                multiple
               />
             </div>
 
@@ -184,4 +197,4 @@ const NewProduct = ({ history }) => {
   );
 };
 
-export default NewProduct;
+export default NewQuiz;
