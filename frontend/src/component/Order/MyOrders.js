@@ -92,18 +92,24 @@ const MyOrders = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="myOrdersPage">
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="myOrdersTable"
-            autoHeight
-          />
+        <>
+          <div className="myOrdersPage">
+            <h1 id="productListHeading">My Orders</h1>
+            <hr />
+            <br />
 
-          <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
-        </div>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={10}
+              disableSelectionOnClick
+              className="myOrdersTable"
+              autoHeight
+            />
+
+            <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
+          </div>
+        </>
       )}
     </Fragment>
   );

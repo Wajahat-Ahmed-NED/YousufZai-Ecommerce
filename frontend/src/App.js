@@ -183,6 +183,7 @@ function App() {
         />
 
         <Route
+          path="/process/payment"
           component={
             window.location.pathname === "/process/payment" ? null : NotFound
           }

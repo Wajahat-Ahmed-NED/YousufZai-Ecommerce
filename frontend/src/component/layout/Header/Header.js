@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
-import logo from "../../../images/download.jpg";
+import logo from "../../../images/download.png";
 
 const options = {
   burgerColorHover: "#eb4034",
@@ -42,7 +42,14 @@ const options = {
 
 const Header = () => {
   return (
-    <ReactNavbar {...options} style={{ backgroundColor: "transparent" }} />
+    <ReactNavbar
+      {...options}
+      // style={{
+      //   backgroundColor: "transparent !important",
+      //   zIndex: 1000,
+      //   marginLeft: "-15px",
+      // }}
+    />
   );
 };
 

@@ -5,10 +5,10 @@ import { Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Doughnut, Line } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
-import { getAdminProduct } from "../../actions/productAction";
+import { getAdminProduct } from "../../actions/productAction.js";
 import { getAllOrders } from "../../actions/orderAction.js";
 import { getAllUsers } from "../../actions/userAction.js";
-import MetaData from "../layout/MetaData";
+import MetaData from "../layout/MetaData.js";
 
 const Dashboard = () => {
   const dispatch = useDispatch();

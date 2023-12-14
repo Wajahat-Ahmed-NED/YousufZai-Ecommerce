@@ -25,7 +25,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.5",
     "nodemailer": "^6.6.3",
+    "react-icons": "^3.11.0",
     "stripe": "^8.174.0",
     "validator": "^13.6.0"
   }
+ 
 }
