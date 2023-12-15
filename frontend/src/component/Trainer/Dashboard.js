@@ -65,7 +65,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <MetaData title="Dashboard - Admin Panel" />
+      <MetaData title="Dashboard - Trainer Panel" />
       <Sidebar />
 
       <div className="dashboardContainer">
@@ -82,21 +82,21 @@ const Dashboard = () => {
             </p>
           </div>
           <div className="dashboardSummaryBox2">
-            <Link to="/admin/products">
+            <Link to="/trainer/products">
               <p>My Courses</p>
               <p>{products && products.length}</p>
             </Link>
-            <Link to="/admin/orders">
+            <Link to="/trainer/orders">
               <p>Purchases</p>
               <p>5</p>
               {/* {orders && orders.length} */}
             </Link>
-            <Link to="/admin/users">
+            <Link to="#">
               <p>Revenue</p>
               <p>Rs 20500</p>
             </Link>
-            {/* <Link to="/admin/users">
-              <p>Users</p>
+            {/* <Link to="/trainer/users">
+              <p>Quiz Submiss</p>
               <p>{users && users.length}</p>
             </Link> */}
           </div>

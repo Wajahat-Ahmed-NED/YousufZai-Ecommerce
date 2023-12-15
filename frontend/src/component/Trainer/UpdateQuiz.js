@@ -72,7 +72,7 @@ const UpdateQuiz = ({ history, match }) => {
 
   //   if (isUpdated) {
   //     alert.success("Quiz Updated Successfully");
-  //     history.push("/admin/products");
+  //     history.push("/trainer/products");
   //     dispatch({ type: UPDATE_PRODUCT_RESET });
   //   }
   // }, [

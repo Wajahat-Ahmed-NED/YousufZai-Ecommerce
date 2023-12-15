@@ -42,7 +42,7 @@ const OrderList = ({ history }) => {
 
     if (isDeleted) {
       alert.success("Order Deleted Successfully");
-      history.push("/admin/orders");
+      history.push("/trainer/orders");
       dispatch({ type: DELETE_ORDER_RESET });
     }
 
@@ -94,7 +94,7 @@ const OrderList = ({ history }) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/quiz/${params.getValue(params.id, "id")}`}>
+            <Link to={`/trainer/quiz/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
 
@@ -155,7 +155,7 @@ const OrderList = ({ history }) => {
           <h1 id="productListHeading">All Quizes</h1>
           <hr />
           <br />
-          <Link to="/admin/quiz" style={{ marginLeft: "2%" }}>
+          <Link to="/trainer/quiz" style={{ marginLeft: "2%" }}>
             <Button variant="outlined">Create New Quiz</Button>
           </Link>
           <br />

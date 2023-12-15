@@ -69,6 +69,7 @@ export const register = (userData) => async (dispatch) => {
 
     const { data } = await axios.post(
       `https://yousuf-zai-ecommerce-api.vercel.app/api/v1/register`,
+      // `http://localhost:4000/api/v1/register`,
       userData,
       config
     );
@@ -77,7 +78,7 @@ export const register = (userData) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,
-      payload: error.response.data.message,
+      payload: error.response?.data.message,
     });
   }
 };

@@ -45,7 +45,7 @@ const UsersList = ({ history }) => {
 
     if (isDeleted) {
       alert.success(message);
-      history.push("/admin/users");
+      history.push("/trainee/users");
       dispatch({ type: DELETE_USER_RESET });
     }
 
@@ -98,7 +98,7 @@ const UsersList = ({ history }) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/content/${params.getValue(params.id, "id")}`}>
+            <Link to={`/trainee/content/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
             &nbsp;
@@ -170,7 +170,7 @@ const UsersList = ({ history }) => {
           <br />
 
           {/* <hr /> */}
-          <Link to="/admin/content" style={{ marginLeft: "2%" }}>
+          <Link to="/trainee/content" style={{ marginLeft: "2%" }}>
             <Button variant="outlined">Add New Content</Button>
           </Link>
           <br />

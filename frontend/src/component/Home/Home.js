@@ -43,7 +43,7 @@ const Home = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="ECOMMERCE" />
+          <MetaData title="GetMyTrainer" />
 
           <div className="banner">
             <p>Welcome to Get My Trainer</p>
@@ -68,8 +68,8 @@ const Home = () => {
           <h2 className="homeHeading">Popular Courses</h2>
 
           <div className="container" id="container">
-            {pop &&
-              pop.map((product) => (
+            {products &&
+              products.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
           </div>

@@ -90,11 +90,11 @@ const Dashboard = () => {
               <p>{orders && orders.length}</p>
             </Link>
             <Link to="/admin/users">
-              <p>New Users</p>
+              <p>Trainers</p>
               <p>{users && users.length}</p>
             </Link>
             <Link to="/admin/users">
-              <p>Users</p>
+              <p>Trainees</p>
               <p>{users && users.length}</p>
             </Link>
           </div>

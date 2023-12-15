@@ -17,13 +17,13 @@ const Sidebar = () => {
     <div className="sidebar">
       <img src={logo} alt="LMS" style={{ marginTop: 50 }} />
 
-      <Link to="/admin/dashboard">
+      <Link to="/trainer/dashboard">
         <p>
           <DashboardIcon /> Trainer Dashboard
         </p>
       </Link>
 
-      <Link to="/admin/products">
+      <Link to="/trainer/products">
         <p>
           {/* <ExpandMoreIcon /> */}
           <ImportExportIcon />
@@ -31,18 +31,18 @@ const Sidebar = () => {
         </p>
       </Link>
 
-      <Link to="/admin/orders">
+      <Link to="/trainer/orders">
         <p>
           <ListAltIcon />
           Quiz
         </p>
       </Link>
-      <Link to="/admin/users">
+      <Link to="/trainer/users">
         <p>
           <PeopleIcon /> Content
         </p>
       </Link>
-      <Link to="/admin/reviews">
+      <Link to="/trainer/reviews">
         <p>
           <RateReviewIcon />
           Course Details

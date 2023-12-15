@@ -20,11 +20,12 @@ const ProtectedRoute = ({
               return <Redirect to="/login" />;
             }
 
-            if (isAdmin === true && user.role !== "admin") {
-              return <Redirect to="/login" />;
-            }
-
-            if (isTrainer === true) {
+            if (
+              isAdmin === true &&
+              user.role !== "admin" &&
+              user.role !== "trainer" &&
+              user.role !== "trainee"
+            ) {
               return <Redirect to="/login" />;
             }
 

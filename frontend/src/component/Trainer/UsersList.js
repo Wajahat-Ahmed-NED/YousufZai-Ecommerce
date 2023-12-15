@@ -45,7 +45,7 @@ const UsersList = ({ history }) => {
 
     if (isDeleted) {
       alert.success(message);
-      history.push("/admin/users");
+      history.push("/trainer/users");
       dispatch({ type: DELETE_USER_RESET });
     }
 
@@ -98,7 +98,7 @@ const UsersList = ({ history }) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/content/${params.getValue(params.id, "id")}`}>
+            <Link to={`/trainer/content/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
             &nbsp;
@@ -160,17 +160,17 @@ const UsersList = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title={`ALL USERS - Admin`} />
+      <MetaData title={`ALL USERS - Trainer`} />
 
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL USERS</h1>
+          <h1 id="productListHeading">ALL Content</h1>
           <hr />
           <br />
 
           {/* <hr /> */}
-          <Link to="/admin/content" style={{ marginLeft: "2%" }}>
+          <Link to="/trainer/content" style={{ marginLeft: "2%" }}>
             <Button variant="outlined">Add New Content</Button>
           </Link>
           <br />

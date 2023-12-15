@@ -44,7 +44,7 @@ const ProductList = ({ history }) => {
 
     if (isDeleted) {
       alert.success("Product Deleted Successfully");
-      history.push("/admin/dashboard");
+      history.push("/trainer/dashboard");
       dispatch({ type: DELETE_PRODUCT_RESET });
     }
 
@@ -92,7 +92,7 @@ const ProductList = ({ history }) => {
       renderCell: (params) => {
         return (
           <Fragment>
-            <Link to={`/admin/product/${params.getValue(params.id, "id")}`}>
+            <Link to={`/trainer/product/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
 
@@ -133,7 +133,7 @@ const ProductList = ({ history }) => {
           <hr />
           <br />
 
-          <Link to="/admin/product" style={{ marginLeft: "2%" }}>
+          <Link to="/trainer/product" style={{ marginLeft: "2%" }}>
             <Button variant="outlined">Create New Course</Button>
           </Link>
           <br />

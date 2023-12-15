@@ -61,7 +61,7 @@ const ProductReviews = ({ history }) => {
 
     if (isDeleted) {
       alert.success("Review Deleted Successfully");
-      history.push("/admin/reviews");
+      history.push("/trainee/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
   }, [dispatch, alert, error, deleteError, history, isDeleted, productId]);

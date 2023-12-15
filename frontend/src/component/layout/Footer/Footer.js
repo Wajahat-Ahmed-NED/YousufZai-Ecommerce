@@ -14,7 +14,7 @@ const Footer = () => {
       </div>
 
       <div className="midFooter">
-        <h1>Get My Trainer</h1>
+        <h2>Get My Trainer</h2>
         <p>High Quality is our first priority</p>
 
         <p>Copyrights {new Date().getFullYear()} &copy; Get My Trainer</p>

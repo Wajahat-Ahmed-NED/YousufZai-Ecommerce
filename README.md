@@ -1,6 +1,6 @@
 # MERN E-COMMERCE TUTORIAL
 
-Hi! My name is **Wajahat Ahmed**, I have created this ecommerce app for a commercial customer YousufZai.
+Hi! My name is **Wajahat Ahmed**, I have created this LMS app for a commercial customer For Their FYP.
 
 # Prerequisite
 
@@ -23,7 +23,7 @@ Make Sure to Create a config.env file in backend/config directory and add approp
 
 **Essential Variables**
 PORT=
-DB_URI =
+DB*URI =
 STRIPE_API_KEY=
 STRIPE_SECRET_KEY=
 JWT_SECRET=
@@ -37,8 +37,8 @@ SMPT_PORT=
 CLOUDINARY_NAME
 CLOUDINARY_API_KEY
 CLOUDINARY_API_SECRET
-_fill each filed with your info respectively_
+\_fill each filed with your info respectively*
 
 ## Author
 
-**LinkedIn** Click [Here](https://in.linkedin.com/in/wajahat.naveed.399) 
+**LinkedIn** Click [Here](https://in.linkedin.com/in/wajahat.naveed.399)

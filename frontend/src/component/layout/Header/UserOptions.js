@@ -19,10 +19,10 @@ const UserOptions = ({ user }) => {
   const history = useHistory();
   const alert = useAlert();
   const dispatch = useDispatch();
-
+  console.log(user);
   const options = [
-    { icon: <ListAltIcon />, name: "Orders", func: orders },
-    { icon: <PersonIcon />, name: "Profile", func: account },
+    { icon: <ListAltIcon />, name: "My Orders", func: orders },
+    { icon: <PersonIcon />, name: "My Profile", func: account },
     {
       icon: (
         <ShoppingCartIcon
@@ -35,16 +35,30 @@ const UserOptions = ({ user }) => {
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
   ];
 
-  if (user.role === "admin") {
+  if (
+    user.role === "admin" ||
+    user.role === "trainer" ||
+    user.role === "trainee"
+  ) {
     options.unshift({
       icon: <DashboardIcon />,
-      name: "Dashboard",
+      name:
+        user.role === "admin"
+          ? "Admin Dashboard"
+          : user.role === "trainer"
+          ? "Trainer Dashboard"
+          : "Trainee Dashboard",
       func: dashboard,
     });
   }
 
   function dashboard() {
-    history.push("/admin/dashboard");
+    user.role === "admin"
+      ? history.push("/admin/dashboard")
+      : user.role === "trainer"
+      ? history.push("/trainer/dashboard")
+      : history.push("/trainee/dashboard");
+    // history.push("/trainer/dashboard");
   }
 
   function orders() {

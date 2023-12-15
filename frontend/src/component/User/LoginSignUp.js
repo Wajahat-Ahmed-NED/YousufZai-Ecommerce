@@ -28,9 +28,10 @@ const LoginSignUp = ({ history, location }) => {
     name: "",
     email: "",
     password: "",
+    role: "",
   });
 
-  const { name, email, password } = user;
+  const { name, email, password, role } = user;
 
   const [avatar, setAvatar] = useState("/Profile.png");
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
@@ -44,12 +45,14 @@ const LoginSignUp = ({ history, location }) => {
     e.preventDefault();
 
     const myForm = new FormData();
-
-    myForm.set("name", name);
-    myForm.set("email", email);
-    myForm.set("password", password);
-    myForm.set("avatar", avatar);
-    dispatch(register(myForm));
+    if (role.toLowerCase() === "trainer" || role.toLowerCase() == "trainee") {
+      myForm.set("name", name);
+      myForm.set("email", email);
+      myForm.set("password", password);
+      myForm.set("role", role);
+      myForm.set("avatar", avatar);
+      dispatch(register(myForm));
+    }
   };
 
   const registerDataChange = (e) => {
@@ -177,7 +180,17 @@ const LoginSignUp = ({ history, location }) => {
                     onChange={registerDataChange}
                   />
                 </div>
-
+                <div className="signUpEmail">
+                  <FaceIcon />
+                  <input
+                    type="role"
+                    placeholder="Trainer / Trainee"
+                    required
+                    name="role"
+                    value={role}
+                    onChange={registerDataChange}
+                  />
+                </div>
                 <div id="registerImage">
                   <img src={avatarPreview} alt="Avatar Preview" />
                   <input

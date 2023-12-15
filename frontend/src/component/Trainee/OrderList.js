@@ -43,7 +43,7 @@ const OrderList = ({ history }) => {
 
     if (isDeleted) {
       alert.success("Order Deleted Successfully");
-      history.push("/admin/orders");
+      history.push("/trainee/orders");
       dispatch({ type: DELETE_ORDER_RESET });
     }
 
@@ -151,7 +151,7 @@ const OrderList = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title={`ALL Quizes - Admin`} />
+      <MetaData title={`ALL Quizes - Trainee`} />
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">

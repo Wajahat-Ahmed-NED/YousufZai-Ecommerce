@@ -72,7 +72,7 @@ const UpdateProduct = ({ history, match }) => {
 
     if (isUpdated) {
       alert.success("Course Updated Successfully");
-      history.push("/admin/products");
+      history.push("/trainee/products");
       dispatch({ type: UPDATE_PRODUCT_RESET });
     }
   }, [
